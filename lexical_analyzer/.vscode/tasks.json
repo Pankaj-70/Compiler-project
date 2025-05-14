@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "build pilot",
+		"type": "shell",
+		"command": "g++",
+		"args": [
+		  "-g",
+		  "pilot.cpp",
+		  "-o",
+		  "pilot"
+		],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+		"problemMatcher": ["$gcc"],
+		"detail": "Build pilot.cpp into ./pilot"
+	  }
+	]
+  }
+  

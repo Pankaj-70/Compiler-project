@@ -1,0 +1,30 @@
+- for build task, go to terminal -> configure build default task
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:\\MinGW\\bin\\g++.exe",
+			"args": [
+				"C:\\Users\\onepi\\Desktop\\compiler_project\\lexical_analyzer\\pilot.cpp",
+				"-o",
+				"pilot.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:\\MinGW\\bin\\g++.exe"
+		}
+	]
+}
+
+- give path in args
+- for build ctrl+shift+b
