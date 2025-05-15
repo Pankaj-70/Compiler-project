@@ -6,7 +6,7 @@
 			"label": "C/C++: g++.exe build active file",
 			"command": "C:\\MinGW\\bin\\g++.exe",
 			"args": [
-				"C:\\Users\\onepi\\Desktop\\compiler_project\\lexical_analyzer\\pilot.cpp",
+				".\\pilot.cpp",
 				"-o",
 				"pilot.exe"
 			],

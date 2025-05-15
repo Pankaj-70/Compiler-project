@@ -13,6 +13,18 @@ enum NODE_TYPE
     NODE_STRING
 };
 
+std::string nodeToString(enum NODE_TYPE TYPE) {
+    switch(TYPE) {
+        case NODE_ROOT: {return "NODE_ROOT";}
+        case NODE_STRING: {return "NODE_STRING";}
+        case NODE_INT: {return "NODE_INT";}
+        case NODE_PRINT: {return "NODE_PRINT";}
+        case NODE_VARIABLE: {return "NODE_VARIABLE";}
+        case NODE_RETURN: {return "NODE_RETURN";}
+        default : {return "Unrecognized node";}
+    }
+}
+
 typedef struct AST_NODE
 {
     enum NODE_TYPE NODE_TYPE;
