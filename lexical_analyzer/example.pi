@@ -1,2 +1,4 @@
+~ This is a comment
 print("check assembler");
+print("next statement");
 return 172;

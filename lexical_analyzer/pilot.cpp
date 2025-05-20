@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     sourceCode = buffer.str();
     sourceCode.append("\0");
     std::cout << "The source code is:\n"
-              << sourceCode << std::endl;
+              << sourceCode << std::endl << std::endl << std::endl;
 
     // LEXER
     Lexer lexer(sourceCode);
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     // PARSER
     Parser parser(tokens);
     AST_NODE *ROOT = parser.parse();
-    std::cout << "Parsing successfully perform" << std::endl;
+    std::cout << "Parsing successfully performed" << std::endl;
     std::cout << "Root size " << ROOT->SUB_STATEMENTS.size() << std::endl;
     
     
@@ -68,6 +68,7 @@ int main(int argc, char **argv)
     std::stringstream linkerInstruction;
     linkerInstruction << "ld -o " << fileNameWithoutExtension << " " << fileNameWithoutExtension << ".pi.o";
     system(linkerInstruction.str().c_str()); 
-    // std::cout << std::endl << "End of program" << std::endl;
+    std::cout << std::endl << "Assembly code generated in example.pi.asm" << std::endl;
+    std::cout << std::endl << "End of program" << std::endl;
     return 0;
 }

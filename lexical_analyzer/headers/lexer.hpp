@@ -211,7 +211,12 @@ public:
                     tokens.push_back(tokenizeString());
                     tokens.push_back(tokenizeSPECIAL(TOKEN_QUOTES));
                     break;
-
+                case '~':
+                    while(curr != '\n' && curr != '\0')
+                    {
+                        advance();
+                    }
+                    break;
                 default:
                     std::cout << "[!] Lexer Error: Token '" << curr << "' is unidentified" << std::endl;
                     std::cout << "Error occured at line number: " << lineNumber << " and character number: " << characterNumber << std::endl;

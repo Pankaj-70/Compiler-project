@@ -50,13 +50,12 @@ class Generator{
     }
 
     void sectionDataDefine(std::string *NEW_ENTRY,int referenceNumber) {
-        std::cout<<"dfhsld";
-        sectionData << "SRef" + referenceNumber;
+        sectionData << "SRef" + std::to_string(referenceNumber);
         sectionData << " : \n";
         sectionData << "db \"" + *NEW_ENTRY + "\"\n   ";
         sectionData << "\n";
-        sectionData << "SRef" + referenceNumber;
-        sectionData << "_L : equ $ -SRef" + referenceNumber;
+        sectionData << "SRef" + std::to_string(referenceNumber);
+        sectionData << "_L : equ $ -SRef" + std::to_string(referenceNumber);
         sectionData << "\n\n";
     }
     void generatePrint(AST_NODE * STATEMENT)
@@ -67,18 +66,18 @@ class Generator{
         }
         int referenceNumber = lookup(STATEMENT->CHILD->VALUE);
         if(referenceNumber == -1) {
-            sectionDataDefine(STATEMENT->CHILD->VALUE, referenceNumber);
             referenceNumber = stringReferenceCounter;
+            sectionDataDefine(STATEMENT->CHILD->VALUE, referenceNumber);
             stringReferenceCounter++;
         }
         sectionText << "mov rax , 1\n";
         sectionText << "mov rdi , 1\n";
-        sectionText << "mov rsi , SRef" + referenceNumber;
-        sectionText << "\nmov rdx , SRef" + referenceNumber;
+        sectionText << "mov rsi , SRef" + std::to_string(referenceNumber);
+        sectionText << "\nmov rdx , SRef" + std::to_string(referenceNumber);
         sectionText << "_L\nsyscall\n\n";
     }
     void generate() {
-        stringReferenceCounter = 0;
+        stringReferenceCounter = 1;
         sectionData << "section .data\n\n";
         sectionText << "section .text\nglobal _start\n_start: \n";
         for(AST_NODE *CURRENT: ROOT -> SUB_STATEMENTS) {
