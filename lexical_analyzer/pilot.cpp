@@ -68,6 +68,6 @@ int main(int argc, char **argv)
     std::stringstream linkerInstruction;
     linkerInstruction << "ld -o " << fileNameWithoutExtension << " " << fileNameWithoutExtension << ".pi.o";
     system(linkerInstruction.str().c_str()); 
-    std::cout << std::endl << "End of program" << std::endl;
+    // std::cout << std::endl << "End of program" << std::endl;
     return 0;
 }
